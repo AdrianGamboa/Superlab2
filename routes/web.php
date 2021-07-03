@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\About;
+use App\Http\Controllers\Administrator;
+use App\Http\Controllers\Contact;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Home;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,22 +17,12 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function () {
+// $users = DB::select('select * from comentarios');
 
-    $users = DB::select('select * from comentarios');
+Route::get('/', [Home::class, 'index']);
+Route::get('/home', [Home::class, 'index'])->name('home');
 
-    return $users;
-
-    //return view('welcome');
-});
-
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('about', [About::class, 'index'])->name('about');
 
 Route::get('/services', function () {
     return view('services');
@@ -38,6 +32,9 @@ Route::get('/galery', function () {
     return view('galery');
 })->name('galery');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('contact', [Contact::class, 'index'])->name('contact');
+Route::post('contact', [Contact::class, 'send']);
+
+Route::get('administrator', [Administrator::class, 'index'])->name('administrator');
+Route::post('administrator', [Administrator::class, 'update']);
+
