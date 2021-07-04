@@ -22,11 +22,29 @@ class Services extends Controller
 
         return redirect()->route('servicesAdmin');
     }
+    public function update($servicio, Request $request) {
+
+        $serv = Service_model::find($servicio);
+        if( $request->txt_nombre_serv!='' && $request->txt_descripcion_serv!=''){
+            $serv->nombre = $request->txt_nombre_serv;
+            $serv->descripcion = $request->txt_descripcion_serv;
+            $serv->save();
+        }
+
+        return redirect()->route('servicesAdmin');
+    }
     public function servicesAdmin() {
 
         $service = Home_model::find(3);
         $servicios = Service_model::all();
 
         return view('servicesAdmin', ['seccion' => $service, 'servicios' => $servicios]);
+    }
+
+    public function servicesEdit($servicio) {
+
+        $service = Service_model::find($servicio);
+
+        return view('servicesEdit', ['servicio' => $service]);
     }
 }

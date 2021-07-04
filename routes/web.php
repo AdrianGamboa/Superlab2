@@ -44,4 +44,6 @@ Route::post('administrator/gallery', [Administrator::class, 'add_gallery']);
 Route::get('administrator/ShowGallery', [Gallery::class, 'galleryAdmin'])->name('galleryAdmin');
 Route::get('administrator/ShowServices', [Services::class, 'servicesAdmin'])->name('servicesAdmin');
 
+Route::get('administrator/editServices/{servicio}', [Services::class, 'servicesEdit'])->name('servicesEdit');
+Route::get('administrator/editServices/update/{servicio}', [Services::class, 'update']);
 

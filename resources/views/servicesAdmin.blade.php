@@ -28,8 +28,12 @@
                 <label style="font-weight: bold">Descripcion: </label>
                 <label>{{$s->descripcion}}</label><br>
 
+                <a href="editServices/<?php echo $s->idServicios ?>">
+                <button type="submit" class="btn_editar">Editar</button>    
+                </a>
+                
                 <form action="../services/delete/<?php echo $s->idServicios ?>" method="GET">
-                    <button type="submit" class="btn_eliminar"></button>  
+                    <button type="submit" class="btn_eliminar"></button>    
                 </form>
             </div>
         @endforeach
