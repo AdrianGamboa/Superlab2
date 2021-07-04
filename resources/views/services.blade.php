@@ -6,12 +6,29 @@
 
     <header>
         <div style="text-align: center;">
-            <img src="https://images-ext-2.discordapp.net/external/CBp88oM5rsyJz-9piHdLKXqB8Fc8ah4WVgTd8QZhPNI/https/bbdu.ac.in/wp-content/uploads/2020/05/banner-background-5.jpg?width=1440&height=525" alt="" class="img-fluid" style='text-align: center; width:100%; height:50vh;'>
+            <img src="../resources/img/{{$seccion->banner}}" alt="" class="img-fluid" style='text-align: center; width:100%; height:50vh;'>
         </div>
     </header>
 
+    @section('links')
+        <a class="nav-link" href="{{ route('services') }}">Servicios</a>
+        <a class="nav-link" href="{{ route('gallery') }}">Galería</a>
+    @endsection
+
     @section('contenido')
-        hola
+    <div id="page">
+        <h1>{{$seccion->titulo}}</h1>
+        <p style="margin:0% 20% 0% 20%;"> {{$seccion->descripcion}} </p>
+
+        @foreach ($servicios as $s)
+            <div class="comentario_box">                        
+                <label style="font-weight: bold">Nombre: </label>
+                <label>{{$s->nombre}}</label><br>
+                <label style="font-weight: bold">Descripcion: </label>
+                <label>{{$s->descripcion}}</label><br>
+            </div>
+        @endforeach
+    </div>
     @endsection
 
 </html>

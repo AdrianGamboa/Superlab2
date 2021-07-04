@@ -17,8 +17,7 @@
               <div class="navbar-nav">
                   <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Inicio</a>
                   <a class="nav-link" href="{{ route('about') }}">¿Quiénes Somos?</a>
-                  <a class="nav-link" href="{{ route('services') }}">Servicios</a>
-                  <a class="nav-link" href="{{ route('galery') }}">Galería</a>
+                  @yield('links')
                   <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
               </div>
               </div>

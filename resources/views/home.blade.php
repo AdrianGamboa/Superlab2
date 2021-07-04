@@ -10,10 +10,17 @@
         </div>
     </header>
 
+    @section('links')
+        <a class="nav-link" href="{{ route('services') }}">Servicios</a>
+        <a class="nav-link" href="{{ route('gallery') }}">Galería</a>
+    @endsection
 
     @section('contenido')
-        <h1 style="margin-left:5%;">{{$seccion->titulo}}</h1>
-        <p style="margin:0% 5% 0% 5%;"> {{$seccion->descripcion}} </p>
+        <div id="page">
+            <h1>{{$seccion->titulo}}</h1>
+        </div>
+            <p style="margin:0% 20% 0% 20%;"> {{$seccion->descripcion}} </p>
+        
     @endsection
     
 </html>
