@@ -43,8 +43,8 @@ class Administrator extends Controller
     public function add_gallery(Request $request) {
 
         $gallery = new Gallery__model();
-
-        if ($request->file('txt_file_g') != null && $request->txt_descripcion_g != "") {
+        $cantidad = Gallery__model::count();
+        if ($request->file('txt_file_g') != null && $request->txt_descripcion_g != "" && $cantidad < 5) {
             $gallery->nombre = $request->file('txt_file_g')->getClientOriginalName();
             $request->file('txt_file_g')->move("../resources/gallery", $request->file('txt_file_g')->getClientOriginalName());
             $gallery->descripcion = $request->txt_descripcion_g;
