@@ -85,7 +85,7 @@ p, label{
     border-radius: 5px;
 }
 .btn_eliminar{
-    width: 30%;
+    width: 10%;
     height: 4vh;
     background-image: url(../img/cancelar.svg);
     background-position: center;

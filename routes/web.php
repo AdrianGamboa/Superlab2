@@ -28,18 +28,19 @@ Route::get('/home', [Home::class, 'index'])->name('home');
 Route::get('about', [About::class, 'index'])->name('about');
 
 Route::get('gallery', [Gallery::class, 'index'])->name('gallery');
+Route::get('gallery/delete/{foto}', [Gallery::class, 'delete']);
 
 Route::get('services', [Services::class, 'index'])->name('services');
 Route::get('services/delete/{servicio}', [Services::class, 'delete']);
 
 Route::get('contact', [Contact::class, 'index'])->name('contact');
 Route::post('contact', [Contact::class, 'send']);
+Route::get('contact/delete/{comentario}', [Contact::class, 'delete']);
 
 Route::get('administrator', [Administrator::class, 'index'])->name('administrator');
 Route::post('administrator', [Administrator::class, 'update']);
 Route::post('administrator/service', [Administrator::class, 'add_service']);
 Route::post('administrator/gallery', [Administrator::class, 'add_gallery']);
-Route::get('gallery/delete/{foto}', [Gallery::class, 'delete']);
 Route::get('administrator/ShowGallery', [Gallery::class, 'galleryAdmin'])->name('galleryAdmin');
 Route::get('administrator/ShowServices', [Services::class, 'servicesAdmin'])->name('servicesAdmin');
 

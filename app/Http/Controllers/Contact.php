@@ -15,6 +15,14 @@ class Contact extends Controller
         return view('contact',['seccion' => $contacto]);
     }
 
+    public function delete($comentario) {
+
+        $com = Contact_model::find($comentario);
+        $com->delete();
+
+        return redirect()->route('administrator');
+    }
+
     public function send(Request $request) {
         
         $seccion = new Contact_model;

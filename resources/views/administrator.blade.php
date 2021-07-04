@@ -136,6 +136,10 @@
                         <label>{{$c->correo}}</label><br>
                         <label style="font-weight: bold">Comentario:</label>
                         <label for="">{{$c->comentario}}</label>
+
+                        <form action="contact/delete/<?php echo $c->idComentarios ?>" method="GET">
+                            <button type="submit" class="btn_eliminar" style="background-position: left;"></button>  
+                        </form>
                     </div>
                 @endforeach
             </div>
