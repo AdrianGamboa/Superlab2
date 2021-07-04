@@ -6,12 +6,13 @@
 
     <header>
         <div style="text-align: center;">
-            <img src="../../resources/img/{{$seccion->banner}}" alt="" class="img-fluid" style='text-align: center; width:100%; height:50vh;'>
+            <img src="/img/{{$seccion->banner}}" alt="" class="img-fluid" style='text-align: center; width:100%; height:40vh;'>
         </div>
     </header>
 
     @section('links')
-    <a class="nav-link" href="{{ route('servicesAdmin') }}">Servicios</a>    
+        <a class="nav-link active" aria-current="page" href="{{ route('administrator') }}">Inicio</a>
+        <a class="nav-link" href="{{ route('servicesAdmin') }}">Servicios</a>
         <a class="nav-link" href="{{ route('galleryAdmin') }}">Galería</a>
     @endsection
 

@@ -29,7 +29,7 @@ class Administrator extends Controller
 
                 if ($request->file('txt_file') != null) {
                     $seccion->banner = $request->file('txt_file')->getClientOriginalName();
-                    $request->file('txt_file')->move("../resources/img", $request->file('txt_file')->getClientOriginalName());
+                    $request->file('txt_file')->move("../public/img", $request->file('txt_file')->getClientOriginalName());
                 }
 
                 $seccion->descripcion = $request->txt_descripcion;
@@ -46,7 +46,7 @@ class Administrator extends Controller
         $cantidad = Gallery__model::count();
         if ($request->file('txt_file_g') != null && $request->txt_descripcion_g != "" && $cantidad < 5) {
             $gallery->nombre = $request->file('txt_file_g')->getClientOriginalName();
-            $request->file('txt_file_g')->move("../resources/gallery", $request->file('txt_file_g')->getClientOriginalName());
+            $request->file('txt_file_g')->move("../public/pictures", $request->file('txt_file_g')->getClientOriginalName());
             $gallery->descripcion = $request->txt_descripcion_g;
             $gallery->save(); 
         }
