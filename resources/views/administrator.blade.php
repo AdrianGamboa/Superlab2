@@ -20,7 +20,7 @@
                 @csrf
 
                 <div class="row">
-                    <select id="txt_seccion" name="txt_seccion" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <select id="txt_seccion" name="txt_seccion" class="form-select form-select-sm" aria-label=".form-select-sm example" onchange= "establecerValores()">
                         <option value="0" selected>Elegir Sección</option>
                         <option value="1">Inicio</option>
                         <option value="2">¿Quiénes Somos?</option>
@@ -29,7 +29,22 @@
                         <option value="5">Contacto</option>                
                     </select>
                 </div>
-
+                <script>
+                    function establecerValores(){
+                        var select = document.getElementById("txt_seccion").value;
+                        var sec = <?php echo json_encode($secciones); ?>; 
+                        console.log(sec[0]);
+                        if(select != '0'){
+                            document.getElementById("txt_titulo").value=sec[parseInt(select)-1].titulo;
+                            document.getElementById("txt_descripcion").value=sec[parseInt(select)-1].descripcion;
+                        }else{
+                            document.getElementById("txt_file").value='';
+                            document.getElementById("txt_titulo").value='';
+                            document.getElementById("txt_descripcion").value='';
+                        }
+                    }
+                   
+                </script>
                 <div class="row">
 
                     <h5>Imagen del banner: </h5>                    
@@ -39,7 +54,7 @@
                     <input type="text" placeholder="Titulo" name="txt_titulo" id="txt_titulo"/>
 
                     <h5>Detalle de la sección: </h5>
-                    <textarea name="txt_descripcion" placeholder="Detalle" class="form-control" id="txt_detalle" rows="3"></textarea>
+                    <textarea name="txt_descripcion" placeholder="Detalle" class="form-control" id="txt_descripcion" rows="3"></textarea>
                                         
                 </div>
                 
@@ -63,8 +78,5 @@
             </div>
         </div>
     @endsection
-        
-
-   
-
+    
 </html>

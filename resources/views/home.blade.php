@@ -15,4 +15,5 @@
         <h1 style="margin-left:5%;">{{$seccion->titulo}}</h1>
         <p style="margin:0% 5% 0% 5%;"> {{$seccion->descripcion}} </p>
     @endsection
+    
 </html>

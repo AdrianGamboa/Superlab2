@@ -12,8 +12,9 @@ class Administrator extends Controller
     public function index() {
         
         $comentarios = Contact_model::all();
+        $secciones= Home_model::all();
 
-        return view('administrator',['comentarios' => $comentarios]);
+        return view('administrator',['comentarios' => $comentarios,'secciones' => $secciones]);
     }
     
     public function update(Request $request) {
